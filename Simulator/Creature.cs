@@ -62,6 +62,23 @@ internal class Creature
         }
     }
 
+
+    public void Go(Direction direction)
+    {
+        Console.WriteLine($"{Name} goes {direction.ToString().ToLower()}");
+    }
+    public void Go(Direction[] directions)
+    {
+        foreach(Direction d in directions)
+        {
+            Go(d);
+        }
+    }
+
+    public void Go(string directions)
+    {
+        Go(DirectionParser.Parse(directions));
+    }
     public string Info => $"{Name} [{Level}]";
 
     // Metoda powitania
