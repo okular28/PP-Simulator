@@ -1,6 +1,6 @@
 ﻿namespace Simulator;
 
-internal class Creature
+internal abstract class Creature
 {
     private string name = "Unknown";
     private int level = 1;
@@ -54,6 +54,7 @@ internal class Creature
 
     public Creature() { }
 
+
     public void Upgrade()
     {
         if (level < 10)
@@ -82,5 +83,6 @@ internal class Creature
     public string Info => $"{Name} [{Level}]";
 
     // Metoda powitania
-    public void SayHi() => Console.WriteLine($"Hi, I'm {Name}, my level is {Level}.");
+    public abstract void SayHi();
+    public abstract int Power { get; }
 }
