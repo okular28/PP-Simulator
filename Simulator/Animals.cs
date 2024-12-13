@@ -15,29 +15,15 @@ namespace Simulator
             get => description;
             init 
             {
-                description = value.Trim();
-                if (string.IsNullOrEmpty(description))
-                {
-                    description = "Unknown";
-                }
-
-                if (description.Length < 3)
-                {
-                    description = description.PadRight(3, '#');
-                }
-
-                if (description.Length > 15)
-                {
-                    description = description.Substring(0, 15).Trim();
-
-                }
-
-                if (char.IsLower(description[0]))
-                {
-                    description = char.ToUpper(description[0]) + description.Substring(1);
-                }
-            } }
+                description = Validator.Shortener(value, 3, 15, '#');
+                
+            } 
+        }
         public uint Size { get; set; } = 3;
-        public string Info => $"{Description} <{Size}>";
+        public virtual string Info => $"{Description} <{Size}>";
+        public override string ToString()
+        {
+            return GetType().Name.ToUpper() + $": {Info}";
+        }
     }
 }

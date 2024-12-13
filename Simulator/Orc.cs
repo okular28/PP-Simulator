@@ -12,9 +12,7 @@ internal class Orc : Creature
     private int huntcounter = 0;
     public int Rage { get => rage; init
         {
-            if (value < 1) rage = 1;
-            else if (value > 10) rage = 10;
-            else rage = value;
+            rage = Validator.Limiter(value, 0, 10);
         }
     }
     public void Hunt()
@@ -41,4 +39,5 @@ internal class Orc : Creature
         Console.WriteLine($"Hi, I'm {Name}, my level is {Level}, my agility is {Rage}.");
     }
     public override int Power => (Level * 7) + (Rage * 3);
+    public override string Info => $"{Name} [{Level}][{Rage}]";
 }

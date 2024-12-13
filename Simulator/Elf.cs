@@ -13,9 +13,7 @@ namespace Simulator
         private int agility;
         public int Agility { get => agility; init
             {
-                if (value < 1) agility = 1;
-                else if (value > 10) agility = 10;
-                else agility = value;
+                agility = Validator.Limiter(value, 0, 10);
             }
         }
         public void Sing()
@@ -42,5 +40,6 @@ namespace Simulator
             Console.WriteLine($"Hi, I'm {Name}, my level is {Level}, my agility is {Agility}.");
     }
         public override int Power => (Level * 8) + (Agility * 2);
+        public override string Info => $"{Name} [{Level}][{Agility}]";
     }
 }

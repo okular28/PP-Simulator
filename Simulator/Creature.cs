@@ -1,4 +1,6 @@
-﻿namespace Simulator;
+﻿using System;
+
+namespace Simulator;
 
 internal abstract class Creature
 {
@@ -10,28 +12,7 @@ internal abstract class Creature
         get => name;
         init
         {
-            name = value.Trim();
-            if (string.IsNullOrEmpty(name))
-            {
-                name = "Unknown";
-            }
-            else
-            {
-                if (name.Length < 3)
-                {
-                    name = name.PadRight(3, '#');
-                }
-
-                if (name.Length > 25)
-                {
-                    name = name.Substring(0, 25).Trim();
-                }
-
-                if (char.IsLower(name[0]))
-                {
-                    name = char.ToUpper(name[0]) + name.Substring(1);
-                }
-            }
+            name = Validator.Shortener(value, 3, 25, '#');
         }
     }
 
@@ -40,9 +21,7 @@ internal abstract class Creature
         get => level;
         init
         {
-            if (value < 1) level = 1;
-            else if (value > 10) level = 10;
-            else level = value;
+            level = Validator.Limiter(value, 0, 10);
         }
     }
 
@@ -80,9 +59,11 @@ internal abstract class Creature
     {
         Go(DirectionParser.Parse(directions));
     }
-    public string Info => $"{Name} [{Level}]";
-
-    // Metoda powitania
+    public abstract string Info { get; }
     public abstract void SayHi();
     public abstract int Power { get; }
+    public override string ToString()
+    {
+        return GetType().Name.ToUpper() + $": {Info}";
+    }
 }
