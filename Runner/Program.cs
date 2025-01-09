@@ -1,4 +1,5 @@
 ﻿using Simulator;
+using Simulator.Maps;
 
 namespace Runner;
 
@@ -10,9 +11,54 @@ internal class Program
         //Lab4a();
         //Lab4b();
         //Lab5a();
+        Lab5b();
         //Point p = new(10, 25);
         //Console.WriteLine(p.Next(Direction.Right));          // (11, 25)
         //Console.WriteLine(p.NextDiagonal(Direction.Right));  // (11, 24)
+    }
+    static void Lab5b()
+    {
+        try
+        {
+            Map map1 = new SmallSquareMap(20);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        try
+        {
+            Map map2 = new SmallSquareMap(40);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        try
+        {
+            Map map3 = new SmallSquareMap(-10);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        try
+        {
+            Map map4 = new SmallSquareMap(0);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        Map map5 = new SmallSquareMap(15);
+        Point point1 = new Point(4, 15);
+        Point point2 = new Point(2, 10);
+        Point point3 = new Point(2, -10);
+        Point point4 = new Point(2, 0);
+        Console.WriteLine(map5.Exist(point1));
+        Console.WriteLine(map5.Exist(point2));
+        Console.WriteLine(map5.Exist(point3));
+        Console.WriteLine(map5.Exist(point4));
     }
     static void Lab5a()
     {
