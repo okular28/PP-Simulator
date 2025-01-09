@@ -19,7 +19,7 @@ namespace Simulator
         public void Sing()
         {
             singcounter++;
-            Console.WriteLine($"{Name} is singing.");
+            //Console.WriteLine($"{Name} is singing.");
             if (singcounter == 3)
             {
                 singcounter = 0;
@@ -35,9 +35,9 @@ namespace Simulator
             Agility = agility;
         }
         public Elf() { }
-        public override void SayHi()
+        public override string Greeting()
         {
-            Console.WriteLine($"Hi, I'm {Name}, my level is {Level}, my agility is {Agility}.");
+            return ($"Hi, I'm {Name}, my level is {Level}, my agility is {Agility}.");
     }
         public override int Power => (Level * 8) + (Agility * 2);
         public override string Info => $"{Name} [{Level}][{Agility}]";

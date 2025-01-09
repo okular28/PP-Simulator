@@ -43,24 +43,26 @@ public abstract class Creature
     }
 
 
-    public void Go(Direction direction)
+    public string Go(Direction direction)
     {
-        Console.WriteLine($"{Name} goes {direction.ToString().ToLower()}");
+        return $"{Name} goes {direction.ToString().ToLower()}";
     }
-    public void Go(Direction[] directions)
+    public string[] Go(Direction[] directions)
     {
-        foreach(Direction d in directions)
+        List<string> results = new List<string>();
+        foreach (Direction d in directions)
         {
-            Go(d);
+            results.Add(Go(d));
         }
+       return results.ToArray();
     }
 
-    public void Go(string directions)
+    public string[] Go(string directions)
     {
-        Go(DirectionParser.Parse(directions));
+        return Go(DirectionParser.Parse(directions));
     }
     public abstract string Info { get; }
-    public abstract void SayHi();
+    public abstract string Greeting();
     public abstract int Power { get; }
     public override string ToString()
     {
