@@ -1,13 +1,39 @@
-﻿using System.ComponentModel;
+﻿using Simulator;
 
-namespace Simulator;
-    internal class Program
-    {
+namespace Runner;
+
+internal class Program
+{
     static void Main(string[] args)
     {
         Console.WriteLine("Starting simulator!\n");
-        Lab4a();
-        Lab4b();
+        //Lab4a();
+        //Lab4b();
+        //Lab5a();
+        //Point p = new(10, 25);
+        //Console.WriteLine(p.Next(Direction.Right));          // (11, 25)
+        //Console.WriteLine(p.NextDiagonal(Direction.Right));  // (11, 24)
+    }
+    static void Lab5a()
+    {
+        Point point = new Point(5,2);
+        Point point1 = new Point(4,6);
+        Point point2 = new Point(5,4);
+        Point point3 = new Point(15,15);
+        try
+        {
+            //var f = new Rectangle(1,4,1,15);
+            var d = new Rectangle(4, 5, 1, 6);
+            Console.WriteLine(d.ToString());
+            var x = new Rectangle(point,point1);
+            Console.WriteLine(x.ToString());
+            Console.WriteLine(x.Contains(point2));
+            Console.WriteLine(x.Contains(point3));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
     }
     static void Lab4a()
     {
@@ -33,11 +59,11 @@ namespace Simulator;
 
         Console.WriteLine("\nPOWER TEST\n");
         Creature[] creatures = {
-        o,
-        e,
-        new Orc("Morgash", 3, 8),
-        new Elf("Elandor", 5, 3)
-    };
+    o,
+    e,
+    new Orc("Morgash", 3, 8),
+    new Elf("Elandor", 5, 3)
+};
         foreach (Creature creature in creatures)
         {
             Console.WriteLine($"{creature.Name,-15}: {creature.Power}");
@@ -46,11 +72,11 @@ namespace Simulator;
     static void Lab4b()
     {
         object[] myObjects = {
-        new Animals() { Description = "dogs"},
-        new Birds { Description = "  eagles ", Size = 10 },
-        new Elf("e", 15, -3),
-        new Orc("morgash", 6, 4)
-    };
+    new Animals() { Description = "dogs"},
+    new Birds { Description = "  eagles ", Size = 10 },
+    new Elf("e", 15, -3),
+    new Orc("morgash", 6, 4)
+};
         Console.WriteLine("\nMy objects:");
         foreach (var o in myObjects) Console.WriteLine(o);
         /*
@@ -61,6 +87,4 @@ namespace Simulator;
             ORC: Morgash [6][4]
         */
     }
-
-
 }

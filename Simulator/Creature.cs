@@ -2,7 +2,7 @@
 
 namespace Simulator;
 
-internal abstract class Creature
+public abstract class Creature
 {
     private string name = "Unknown";
     private int level = 1;

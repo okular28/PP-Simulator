@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Simulator
 {
-    internal class Elf : Creature
+    public class Elf : Creature
     {
         private int singcounter = 0;
         private int agility;

@@ -30,6 +30,10 @@ public static class Validator
             if (name.Length > max)
             {
                 name = name.Substring(0, max).Trim();
+                if (name.Length < min)
+                {
+                    name = name.PadRight(3, placeholder);
+                }
             }
 
             if (char.IsLower(name[0]))

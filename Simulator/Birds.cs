@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Simulator;
 
-internal class Birds : Animals
+public class Birds : Animals
 {
     public bool Canfly = true;
     public override string Info
