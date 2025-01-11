@@ -24,7 +24,9 @@ namespace Simulator.Maps;
         {
             Point nextPoint = p.Next(d);
             if (Exist(nextPoint))
+            {
                 return nextPoint;
+            }
             return p;
         }
 

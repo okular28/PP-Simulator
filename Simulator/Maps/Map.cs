@@ -23,6 +23,7 @@ namespace Simulator.Maps
             SizeX = sizex;
             SizeY = sizey;
         }
+
         /// <summary>
         /// Check if give point belongs to the map.
         /// </summary>
@@ -30,7 +31,7 @@ namespace Simulator.Maps
         /// <returns></returns>
         public bool Exist(Point p)
         {
-            return p.X >=0 && p.X < SizeX && p.Y >= 0 && p.Y < SizeY;
+            return p.X >= 0 && p.X < SizeX && p.Y >= 0 && p.Y < SizeY;
         }
 
         /// <summary>
@@ -49,5 +50,10 @@ namespace Simulator.Maps
         /// <param name="d">Direction.</param>
         /// <returns>Next point.</returns>
         public abstract Point NextDiagonal(Point p, Direction d);
+
+        public virtual void Move(object creature, Point p)
+        {
+            throw new NotImplementedException("Move is not implemented in the base class.");
+        }
     }
 }

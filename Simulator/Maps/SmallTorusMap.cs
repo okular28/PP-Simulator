@@ -16,7 +16,7 @@ public class SmallTorusMap : SmallMap
     //public override bool Exist(Point p)
     //{
     //    return board.Contains(p);
-    //}
+    //}   
 
     public override Point Next(Point p, Direction d)
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Simulator.Maps;
 
 namespace Simulator;
 
@@ -6,6 +7,8 @@ public abstract class Creature
 {
     private string name = "Unknown";
     private int level = 1;
+    public Map? CurrentMap { get; private set; }
+    public Point CreaturePosition {  get; set; }
 
     public string Name
     {
@@ -42,30 +45,38 @@ public abstract class Creature
         }
     }
 
+    public void CreatureSpawner(SmallMap map, Point p)
+    {
+        CurrentMap = map;
+        CreaturePosition = p;
+        map.Add(this, p);
+    }
 
     public string Go(Direction direction)
     {
+        CreaturePosition = CurrentMap.Next(CreaturePosition,direction);
+        CurrentMap.Move(this, CreaturePosition);
         return $"{Name} goes {direction.ToString().ToLower()}";
     }
-    public string[] Go(List<Direction> directions)
-    {
-        List<string> results = new List<string>();
-        foreach (Direction d in directions)
-        {
-            results.Add(Go(d));
-        }
-       return results.ToArray();
-    }
+    //public string[] Go(List<Direction> directions)
+    //{
+    //    List<string> results = new List<string>();
+    //    foreach (Direction d in directions)
+    //    {
+    //        results.Add(Go(d));
+    //    }
+    //   return results.ToArray();
+    //}
 
-    public string[] Go(string directions)
-    {
-        return Go(DirectionParser.Parse(directions));
-    }
+    //public string[] Go(string directions)
+    //{
+    //    return Go(DirectionParser.Parse(directions));
+    //}
     public abstract string Info { get; }
     public abstract string Greeting();
     public abstract int Power { get; }
-    public override string ToString()
-    {
-        return GetType().Name.ToUpper() + $": {Info}";
-    }
+    //public override string ToString()
+    //{
+    //    return GetType().Name.ToUpper() + $": {Info}";
+    //}
 }
