@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,26 @@ namespace Simulator.Maps
     /// </summary>
     public abstract class Map
     {
+        public readonly int SizeX;
+        public readonly int SizeY;
+        public Map(int sizex, int sizey)
+        {
+            if (sizex < 5 || sizey < 5)
+            {
+                throw new ArgumentOutOfRangeException("Mapa powinna mieć rozmiar przynajmniej 5x5.");
+            }
+            SizeX = sizex;
+            SizeY = sizey;
+        }
         /// <summary>
         /// Check if give point belongs to the map.
         /// </summary>
         /// <param name="p">Point to check.</param>
         /// <returns></returns>
-        public abstract bool Exist(Point p);
+        public bool Exist(Point p)
+        {
+            return p.X >=0 && p.X < SizeX && p.Y >= 0 && p.Y < SizeY;
+        }
 
         /// <summary>
         /// Next position to the point in a given direction.

@@ -10,17 +10,6 @@ namespace TestSimulator;
 
 public class SmallSquareMapTests
 {
-    [Fact]
-    public void Constructor_ValidSize_ShouldSetSize()
-    {
-        // Arrange
-        int size = 10;
-        // Act
-        var map = new SmallSquareMap(size);
-        // Assert
-        Assert.Equal(size, map.Size);
-    }
-
     [Theory]
     [InlineData(4)]
     [InlineData(21)]

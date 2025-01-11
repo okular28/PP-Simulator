@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace Simulator;
 public static class DirectionParser
 {
-    public static Direction[] Parse(string input)
+    public static List<Direction> Parse(string input)
     {
-        List<Direction> DirectionList = new List<Direction>();
+        List<Direction> DirectionList = new();
         foreach (char letter in input)
         {
             switch (letter)
@@ -34,6 +34,6 @@ public static class DirectionParser
                     break;
             }
         }
-        return DirectionList.ToArray();
+        return DirectionList;
     }
 }

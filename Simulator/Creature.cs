@@ -47,7 +47,7 @@ public abstract class Creature
     {
         return $"{Name} goes {direction.ToString().ToLower()}";
     }
-    public string[] Go(Direction[] directions)
+    public string[] Go(List<Direction> directions)
     {
         List<string> results = new List<string>();
         foreach (Direction d in directions)
