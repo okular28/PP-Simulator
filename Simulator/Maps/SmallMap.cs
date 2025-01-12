@@ -27,11 +27,11 @@ public class SmallMap : Map
     {
         throw new NotImplementedException();
     }
-    public bool CreatureChecker(object Creature)
+    public override bool CreatureChecker(object Creature)
     {
         return CreaturePositionDictionary.ContainsKey(Creature);
     }
-    public List<object> At(Point p)
+    public override List<object> At(Point p)
     {
         return CreaturePositionDictionary
         .Where(kvp => kvp.Value.Equals(p))
@@ -39,19 +39,19 @@ public class SmallMap : Map
         .ToList();
     }
 
-    public List<object> At(int x, int y)
+    public override List<object> At(int x, int y)
     {
         // Tworzymy punkt na podstawie współrzędnych i wywołujemy poprzednią wersję metody.
         return At(new Point(x, y));
     }
-    public void Add(object Creature, Point p)
+    public override void Add(object Creature, Point p)
     {
         if (!CreatureChecker(Creature))
         {
             CreaturePositionDictionary.Add(Creature, p);
         }
     }
-    public void Remove(object Creature)
+    public override void Remove(object Creature)
     {
         if (CreatureChecker(Creature))
         {

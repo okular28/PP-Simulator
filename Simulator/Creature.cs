@@ -45,7 +45,7 @@ public abstract class Creature
         }
     }
 
-    public void CreatureSpawner(SmallMap map, Point p)
+    public void CreatureSpawner(Map map, Point p)
     {
         CurrentMap = map;
         CreaturePosition = p;

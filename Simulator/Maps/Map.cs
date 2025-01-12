@@ -55,5 +55,27 @@ namespace Simulator.Maps
         {
             throw new NotImplementedException("Move is not implemented in the base class.");
         }
+
+        public virtual bool CreatureChecker(object Creature)
+        {
+            throw new NotImplementedException("Move is not implemented in the base class.");
+        }
+        public virtual List<object> At(Point p)
+        {
+            throw new NotImplementedException("Move is not implemented in the base class.");
+        }
+
+        public virtual List<object> At(int x, int y)
+        {
+            throw new NotImplementedException("Move is not implemented in the base class.");
+        }
+        public virtual void Add(object Creature, Point p)
+        {
+            throw new NotImplementedException("Move is not implemented in the base class.");
+        }
+        public virtual void Remove(object Creature)
+        {
+            throw new NotImplementedException("Move is not implemented in the base class.");
+        }
     }
 }

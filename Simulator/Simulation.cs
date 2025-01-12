@@ -86,7 +86,7 @@ public class Simulation
         Moves = moves;
         for (int i = 0; i < creatures.Count; i++)
         {
-            creatures[i].CreatureSpawner((SmallMap)Map, positions[i]);
+            creatures[i].CreatureSpawner(Map, positions[i]);
         }
     }
 
