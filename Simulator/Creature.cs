@@ -3,7 +3,7 @@ using Simulator.Maps;
 
 namespace Simulator;
 
-public abstract class Creature
+public abstract class Creature : IMappable
 {
     private string name = "Unknown";
     private int level = 1;
@@ -58,25 +58,7 @@ public abstract class Creature
         CurrentMap.Move(this, CreaturePosition);
         return $"{Name} goes {direction.ToString().ToLower()}";
     }
-    //public string[] Go(List<Direction> directions)
-    //{
-    //    List<string> results = new List<string>();
-    //    foreach (Direction d in directions)
-    //    {
-    //        results.Add(Go(d));
-    //    }
-    //   return results.ToArray();
-    //}
-
-    //public string[] Go(string directions)
-    //{
-    //    return Go(DirectionParser.Parse(directions));
-    //}
     public abstract string Info { get; }
     public abstract string Greeting();
     public abstract int Power { get; }
-    //public override string ToString()
-    //{
-    //    return GetType().Name.ToUpper() + $": {Info}";
-    //}
 }
