@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Simulator;
@@ -46,6 +47,10 @@ public class MapVisualizer
                             Console.Write('O'); break;
                         case Elf:
                             Console.Write('E'); break;
+                        case Birds:
+                            Console.Write(CheckIfItFlies(creatures[0])); break;
+                        case Animals:
+                            Console.Write('A'); break;
                     }
                 }
                 else Console.Write(" ");
@@ -74,5 +79,14 @@ public class MapVisualizer
         }
         Console.WriteLine(Box.BottomRight);
     }
-
+    public char CheckIfItFlies(object birdd)
+    {
+        char x;
+        if (birdd is Birds bird)
+        {
+            x = (bird.Flight) ? 'B' : 'b';
+            return x;
+        }
+        else { return 'B'; }
+    }
 }

@@ -10,7 +10,8 @@ namespace Simulator.Maps
     {
         void CreatureSpawner(Map map, Point p);
         string Go(Direction direction);
-        string Name { get; init; }
+        string Name { get; }
         Point CreaturePosition { get; set; }
+        //char Symbol { get; }
     }
 }
